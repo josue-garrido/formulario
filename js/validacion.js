@@ -71,4 +71,32 @@ function validar(formulario) {
         formulario.edad.focus();
         return(false);
     }
+
+     //validando el correo
+     if(formulario.correo.value.length < 5){
+        alert("Escriba el correo con el formato xxx.x@x.x")
+        //focus() nos ayuda a focalizar donde esta el error del llenado
+        //realiza un posicionamiento al elemento del formulario
+        formulario.correo.focus();
+        return false;
+    }
+
+    var txt = formulario.correo.value;
+    //expresion regular
+    var b = /^[^@\s]+@[^@\.\s]+(\.[^@\.\s]+)+$/
+    //ejemplo@ejemplo
+    //ejemplo@ejemplo.ejemplo
+    //todo lo que esta adentro [] es la expresion
+
+    //para la creacion del curp
+    //para una llave compartida de SSSDDDPDF
+
+    alert("Email " + (b.test(txt) ? "" : "no") + "valido");
+    //si b.test(txt) "" es verdadero   : sino   "no" falso
+    return b.test(txt);
+
+    //var emailval = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+
+
 }
