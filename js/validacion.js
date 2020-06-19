@@ -154,7 +154,7 @@ function validar(formulario) {
 
 
 
-function validarfecha(formulario){
+function calcularedad(formulario){
     
     //validacion de fecha --------------------------------------------------------
     if(formulario.dia.value.length != 2 ){
