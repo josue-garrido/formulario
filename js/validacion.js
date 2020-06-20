@@ -154,35 +154,39 @@ function validar(formulario) {
 
 
 
-function calcularedad(formulario){
+function calcularedad(formulario2){
     
     //validacion de fecha --------------------------------------------------------
-    if(formulario.dia.value.length != 2 ){
+    if(formulario2.dia.value.length != 2 ){
         alert("el formato de fecha es dd, o la  fecha maxima es de 31")
         //focus() nos ayuda a focalizar donde esta el error del llenado
         //realiza un posicionamiento al elemento del formulario
         formulario.dia.focus();
         return false;
     }
-    if(formulario.mes.value.length != 2 ){
-        alert("Escriba maximo 2 digitos, o la  fecha maxima es de 31")
+    if(formulario2.mes.value.length != 2 ){
+        alert("el formato de mes es mm, o la  fecha maxima es de 31")
         //focus() nos ayuda a focalizar donde esta el error del llenado
         //realiza un posicionamiento al elemento del formulario
-        formulario.mes.focus();
+        formulario2.mes.focus();
         return false;
     }
-    if(formulario.año.value.length != 4 ){
+    if(formulario2.año.value.length != 4 ){
         alert("el formato de la fecha es yyyyy, escribe 4 digitos")
         //focus() nos ayuda a focalizar donde esta el error del llenado
         //realiza un posicionamiento al elemento del formulario
-        formulario.año.focus();
+        formulario2.año.focus();
         return false;
     }
     //partes de la fecha -------------------------------------------------------
-    var dia = formulario.dia.value;
-    var mes = formulario.mes.value;
-    var año = formulario.año.value;
-    
+    var dia = formulario2.dia.value;
+    var mes = formulario2.mes.value;
+    var año = formulario2.año.value;
+    fecha_actual = new Date();
+    año_actual = fecha_actual.getFullYear();
+    mes_actual = fecha_actual.getMonth();
+    dia_actual = fecha_actual.getDate();
+    edad = año_actual - año;
     
     if (año < 1950 || año > 2050) return  alert("el año esta fuera de los limites, el rango es de 1950 a 2050");;
     //Validar manualmente
@@ -201,7 +205,25 @@ function calcularedad(formulario){
     alert ("la fecha es correcta " + dia + "/" + mes + "/" + año);
     
       
-
+    if (mes < (mes_actual - 1)) {
+        edad--;
+      }
+      if (((mes - 1) == mes_actual) && (dia_actual < dia)) {
+        edad--;
+      }
     
+      document.getElementById('mostraredad').innerHTML = + edad;
+}
 
+function calcularhm(formulario3){
+    var numpersonas;
+    var i;
+    var hombres;
+    var mujeres;
+    /*document.getElementById('datos').innerHTML="escribe el numero de personas que conforman el grupo <br> <form id='valor'><input type='text' id='numeropersonas'> <input type='submit'></form>";*/
+    numpersonas = formulario3.numeropersonas.value;
+    document.getElementById('datos').innerHTML =  +  numpersonas;
+    
+    
+    
 }
