@@ -228,23 +228,24 @@ function calcularhm(formulario3){
     
 }
     function porcentaje(){
-        var total, sexo, nhombres=0,nmujeres=0,porcentaje;
-        total=prompt("cuantas personas conforman el grupo");
-        for (personas=1;personas<=total;personas++)
+        var totalpersonas, sexo, numhombres=0,nummujeres=0,porchombres;
+        
+        totalpersonas =prompt("cuantas personas conforman el grupo");
+        for (i=1;i<=totalpersonas;i++)
         {
-            sexo=promt("es hombre o mujer?", "hombre","mujer");
+            sexo=prompt("es hombre o mujer?", "hombre","mujer");
             if (sexo == "hombre"){
-                nhombres++;
+                numhombres++;
                 alert("se ha añadido un hombre");
             }
             if (sexo=="mujer"){
-                nmujeres++;
+                nummujeres++;
                 alert("se ha añadido una mujer");
             }
         }
-        porcentaje = (nhombres*100)/total;
-        alert("el porcentaje de hombres es:" + porcentaje + "%");
-        porcentajem = (nmujeres*100)/total;
-        alert("el porcentaje de mujeres es:" + porcentajem + "%");
+        porchombres = (numhombres*100)/totalpersonas;
+        alert("el porcentaje de hombres es:"+ " " + porchombres + "%");
+        porcmujeres = (nummujeres*100)/totalpersonas;
+        alert("el porcentaje de mujeres es:"+ " "+ porcmujeres + "%");
 
     }
